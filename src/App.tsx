@@ -4,22 +4,33 @@ import './App.css'
 function App() {
   const [contador, setContador] = useState(66);
 
-  function renderizarMain() {
-    
+  function renderMain() {
+    switch (contador) {
+      case 1: 
+        return <p>Opção 1</p>        
+        break;
+
+      case 2:
+        return <p>Opção 2</p>
+        break;
+
+      default: 
+        return <p>Opção Inválida</p>
+        break;
+    }
+
   }
 
   return(
     <>
       <section>
         <h1>Exemplo de uso do useState</h1>
-        <input type='text' />
-        <p>{contador}</p>
+        <ul>
+          <li onClick={()=>setContador(1)} > Opção 1</li>
+          <li onClick={()=>setContador(2)} > Opção 2</li>
+        </ul>
         <br/>
-        <input type='button' value='Clique' onClick={()=>{
-        
-          setContador(contador+1) 
-        
-        }}/>
+        {renderMain()}
       </section>
     </>
   )
